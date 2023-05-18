@@ -15,3 +15,5 @@ const shipFactory = (length) => {
 
     return {hit, isSunk}
 }
+
+module.exports = shipFactory
