@@ -15,4 +15,13 @@ describe('shipFactory', () => {
             expect(myShip.isSunk()).toBe(true)
         })
     })
+
+    describe('hit', () => {
+        test('number of hits is increased when hit method is called', () => {
+            const myShip = shipFactory(3)
+            myShip.hit()
+            myShip.hit()
+            expect(myShip.hit()).toBe(3)
+        })
+    })
 })

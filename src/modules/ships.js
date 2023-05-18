@@ -4,6 +4,7 @@ const shipFactory = (length) => {
 
     const hit = () => {
         hits += 1
+        return hits
     }
 
     const isSunk = () => {
