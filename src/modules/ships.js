@@ -1,6 +1,7 @@
 const shipFactory = (length) => {
     let hits = 0 
     let sunk = false
+    let shipLenght = length
 
     const hit = () => {
         hits += 1
