@@ -16,5 +16,5 @@ const shipFactory = (length) => {
 
     return {hit, isSunk}
 }
-
+export default {shipFactory}
 module.exports = shipFactory
