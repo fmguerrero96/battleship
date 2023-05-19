@@ -1,7 +1,7 @@
 const shipFactory = (length) => {
     let hits = 0 
     let sunk = false
-    let shipLenght = length
+    let shipLength = length
 
     const hit = () => {
         hits += 1
@@ -9,7 +9,7 @@ const shipFactory = (length) => {
     }
 
     const isSunk = () => {
-        if(hits === length){
+        if(hits === shipLength){
             sunk = true
         }
         return sunk
