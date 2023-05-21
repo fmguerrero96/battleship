@@ -45,7 +45,7 @@ const gameboardFactory = () => {
     }
 
     populateGrid()
-    return{placeShip, grid, ships, receiveAttack}
+    return{placeShip, grid, ships, receiveAttack, missedAttacks}
 
 }
 
