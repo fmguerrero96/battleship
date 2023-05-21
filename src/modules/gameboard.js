@@ -44,8 +44,12 @@ const gameboardFactory = () => {
         }
     }
 
+    const allShipsSunk = () => {
+        return ships.every((ship) => ship.isSunk())
+    }
+
     populateGrid()
-    return{placeShip, grid, ships, receiveAttack, missedAttacks}
+    return{placeShip, grid, ships, receiveAttack, missedAttacks, allShipsSunk}
 
 }
 
