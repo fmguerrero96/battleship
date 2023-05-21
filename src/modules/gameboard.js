@@ -33,8 +33,19 @@ const gameboardFactory = () => {
         ships.push(ship)
     }
 
+    const receiveAttack = (coordinates) => {
+        const [x,y] = coordinates
+        if(grid[x][y] === null){
+            missedAttacks.push([x,y])
+            grid[x][y] = 0 //0 will indicate a grid position that was attacked and missed
+        } else {
+            let ship = grid[x][y]
+            ship.hit()
+        }
+    }
+
     populateGrid()
-    return{placeShip, grid, ships}
+    return{placeShip, grid, ships, receiveAttack}
 
 }
 
