@@ -1,4 +1,4 @@
-import shipFactory from (shipFactory)
+import shipFactory from './ships'
 
 const gameboardFactory = () => {
     const grid = []
@@ -27,7 +27,7 @@ const gameboardFactory = () => {
     }
 
     populateGrid()
-    return{placeShip}
+    return{placeShip, grid, ships}
 
 }
 
