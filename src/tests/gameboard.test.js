@@ -1,3 +1,4 @@
+const { experiments } = require('webpack')
 const gameboardFactory = require('../modules/gameboard')
 
 describe('gameboardFactory', () => {
@@ -55,6 +56,21 @@ describe('gameboardFactory', () => {
             board.receiveAttack(index)
             board.receiveAttack(index)
             expect(board.ships[0].isSunk()).toBe(true)
+        })
+    })
+
+    describe('allsShipsSunk', () => {
+        const board = gameboardFactory()
+        board.placeShip([2, 3], 3)
+        test('returns false if all ships are not sunk', () => {
+            expect(board.allShipsSunk()).toBe(false)
+        })
+
+        test('returns true if all ships are sunk', () => {
+            board.receiveAttack([2, 3])
+            board.receiveAttack([2, 4])
+            board.receiveAttack([2, 5])
+            expect(board.allShipsSunk()).toBe(true)
         })
     })
 })
