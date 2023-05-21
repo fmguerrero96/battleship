@@ -19,11 +19,18 @@ const gameboardFactory = () => {
     const placeShip = (coordinates, shipLength) => {
         const ship = shipFactory(shipLength)
         const [x, y] = coordinates;
-        ships.push(ship)
+        
+        for(let i =0; i < shipLength; i++){
+            if(grid[x][y + i] !== null){
+                throw new Error('Cannot place ship on an occupied spot')
+            }
+        }
 
         for(let i = 0; i < shipLength; i++){
             grid[x][y + i] = ship;
         }
+
+        ships.push(ship)
     }
 
     populateGrid()
