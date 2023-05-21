@@ -15,7 +15,7 @@ const shipFactory = (length) => {
         return sunk
     }
 
-    return {hit, isSunk}
+    return {hit, isSunk, hits, sunk, shipLength}
 }
 export default {shipFactory}
 module.exports = shipFactory
