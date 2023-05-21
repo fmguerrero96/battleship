@@ -1,4 +1,3 @@
-const { experiments } = require('webpack')
 const gameboardFactory = require('../modules/gameboard')
 
 describe('gameboardFactory', () => {
