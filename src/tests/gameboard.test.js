@@ -43,8 +43,18 @@ describe('gameboardFactory', () => {
             /*The ship was only hit once, but I called the hit function again
             so that it would return a value. So the ship was hit once inside 
             the receive attack function and once more in the 'expect' line.
-            Ultimately the function works as expected and the test*/
+            Ultimately the function works as expected and the test passed*/
              
+        })
+        test('attack will sink a ship', () => {
+            const board = gameboardFactory()
+            const length = 3
+            const index = [2, 3]
+            board.placeShip(index, length)
+            board.receiveAttack(index)
+            board.receiveAttack(index)
+            board.receiveAttack(index)
+            expect(board.ships[0].isSunk()).toBe(true)
         })
     })
 })
