@@ -1,5 +1,3 @@
-import gameboardFactory from "./gameboard"
-
 const playerFactory = (playerType) => {
     let isMyTurn = null
     let myAttacks = []
