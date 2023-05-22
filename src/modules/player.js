@@ -18,9 +18,10 @@ const playerFactory = (playerType) => {
 
     const computerPlayerAttack = (board) => {
         const coordinates = getRandomCoordinates()
-        if (board.isValidAttack(coordinates)){
-            board.receiveAttack(coordinates)
+        while(!board.isValidAttack(coordinates)){
+            coordinates = getRandomCoordinates
         }
+        board.receiveAttack(coordinates)
         myAttacks.push(coordinates)
         isMyTurn = false
     }
