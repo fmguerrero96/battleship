@@ -21,4 +21,21 @@ describe('playerFactory', () => {
             expect(board.grid[0][0]).toEqual(0)
         })
     })
+
+    describe('computerPlayerAttack', () => {
+        const board = gameboardFactory()
+        const player = playerFactory()
+        test('function updates myAttacks array', () => {
+            player.computerPlayerAttack(board)
+            expect(player.myAttacks.length).toEqual(1)
+        })
+        test('function updates missedAttacks', () => {
+            expect(board.missedAttacks.length).toEqual(1)
+        })
+        test('function updates the grid', () => {
+            player.computerPlayerAttack(board)
+            const [x, y] = player.myAttacks[player.myAttacks.length - 1]
+            expect(board.grid[x][y]).toEqual(0);
+        })
+    })
 })
