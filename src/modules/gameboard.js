@@ -4,6 +4,7 @@ const gameboardFactory = () => {
     const grid = []
     const ships = []
     const missedAttacks = []
+    const successfulAttacks = []
 
     const populateGrid = () => {
         let rows = 10
@@ -41,6 +42,7 @@ const gameboardFactory = () => {
         } else {
             let ship = grid[x][y]
             ship.hit()
+            successfulAttacks.push([x,y])
         }
     }
 
@@ -48,8 +50,24 @@ const gameboardFactory = () => {
         return ships.every((ship) => ship.isSunk())
     }
 
+    const isValidAttack = (coordinates) => {
+        const [x, y] = coordinates;
+        for (const [attackX, attackY] of successfulAttacks) {
+            if (attackX === x && attackY === y) {
+                return false;
+            }
+        }
+        for (const [attackX, attackY] of missedAttacks) {
+            if (attackX === x && attackY === y) {
+                return false
+            }
+        }
+        return true;
+    }
+
     populateGrid()
-    return{placeShip, grid, ships, receiveAttack, missedAttacks, allShipsSunk}
+    return{placeShip, grid, ships, receiveAttack, 
+        missedAttacks, allShipsSunk, isValidAttack}
 
 }
 
