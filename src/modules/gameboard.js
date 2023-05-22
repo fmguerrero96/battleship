@@ -66,6 +66,7 @@ const gameboardFactory = () => {
     }
 
     populateGrid()
+    
     return{placeShip, grid, ships, receiveAttack, 
         missedAttacks, allShipsSunk, isValidAttack}
 
