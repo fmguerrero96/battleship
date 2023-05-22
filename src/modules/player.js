@@ -1,4 +1,4 @@
-import gameboard from "./gameboard"
+import gameboardFactory from "./gameboard"
 
 const playerFactory = (playerType) => {
     let isMyTurn = null
@@ -9,6 +9,7 @@ const playerFactory = (playerType) => {
             board.receiveAttack(coordinates)
         }
         myAttacks.push(coordinates)
+        isMyTurn = false
     }
 
     const getRandomCoordinates = () => {
@@ -17,13 +18,19 @@ const playerFactory = (playerType) => {
         return [x, y]
     }
 
-    const computerPlayerAttack = (coordinates, board) =>{
-
+    const computerPlayerAttack = (board) => {
+        const coordinates = getRandomCoordinates()
+        if (board.isValidAttack(coordinates)){
+            board.receiveAttack(coordinates)
+        }
+        myAttacks.push(coordinates)
+        isMyTurn = false
     }
 
     const attack = playerType === "human" ? humanPlayerAttack : computerPlayerAttack;
 
-    return{humanPlayerAttack, computerPlayerAttack, attack, isMyTurn}
+    return{humanPlayerAttack, computerPlayerAttack, attack, isMyTurn,
+           myAttacks}
 }
 
 export default {playerFactory}
