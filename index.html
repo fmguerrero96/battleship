@@ -5,10 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battleship</title>
-    <script src="main.js"></script>
+    <script defer src="main.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <header>
+        <div class="titleContainer">
+            <h1 class="title">BATTLESHIP</h1>
+        </div>
+    </header>
+    <dialog class="welcomeScreen">
+        <h2>
+            Welcome Captain
+        </h2>
+        <p>Place Your Ships</p>
+        <div class="board"></div>
+        <button class="begin">Begin</button>
+    </dialog>
+    <main>
+        <div class="gameboards-container">
+            <div class="human board"></div>
+            <div class="computer board"></div>
+        </div>
+    </main>
+    <dialog>
+        <h2 class="winner">You Win / Computer Wins</h2>
+        <button class="playAgain">Play Again</button>
+    </dialog>
+    <footer>
+        <div class="credits">
+            Created by Misael Guerrero
+        </div>
+    </footer>
 </body>
 </html>
