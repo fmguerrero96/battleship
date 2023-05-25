@@ -28,7 +28,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 
 .board {
@@ -39,4 +38,17 @@ main {
 
 .board:first-child{
     margin-right: 30px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 7vh;
+}
+
+.credits {
+    font-size: 1.25rem;
+    font-family: sans-serif;
+    font-weight: 200;
 }
