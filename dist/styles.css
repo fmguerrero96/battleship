@@ -103,3 +103,35 @@ p {
     background-color: aliceblue;
     color:rgb(19, 30, 54);
 }
+
+.gameEnd {
+    width: 40vw;
+    height: 30vh;
+    background-color: rgb(214, 214, 214);
+    font-family: sans-serif;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.winner {
+    font-family: 'Black Ops One', cursive;
+    font-size: 3rem;
+    margin: .5em 0 .75em 0;
+}
+
+.playAgain {
+    width: 35%;
+    height: 30%;
+    font-family: 'Black Ops One', cursive;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(19, 30, 54);
+    color: aliceblue;
+    border: none;
+}
+
+.playAgain:active {
+    background-color: aliceblue;
+    color:rgb(19, 30, 54);
+}
