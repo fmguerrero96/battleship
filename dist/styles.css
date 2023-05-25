@@ -20,5 +20,19 @@ menu, nav {
     font-family: 'Black Ops One', cursive;
     text-align: center;
     margin-top: 2rem;
+}
+
+main {
+    height: 75vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.board {
+    height: 45vh;
+    width: 30%;
     border: 1px solid black;
 }
