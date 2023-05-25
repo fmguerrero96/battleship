@@ -15,11 +15,16 @@ menu, nav {
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(19, 30, 54);
+}
+
 .titleContainer {
     font-size: 5rem;
     font-family: 'Black Ops One', cursive;
     text-align: center;
     margin-top: 2rem;
+    color: aliceblue;
 }
 
 main {
@@ -33,7 +38,7 @@ main {
 .board {
     height: 45vh;
     aspect-ratio: 1/1;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .board:first-child{
@@ -51,4 +56,5 @@ footer{
     font-size: 1.25rem;
     font-family: sans-serif;
     font-weight: 200;
+    color: aliceblue;
 }
