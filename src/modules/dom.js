@@ -9,6 +9,9 @@ const events = (() => {
         for (let i = 0; i < numDivs; i++){
             let cell = document.createElement('div'); //creating cells
             cell.className = 'cell'
+            const x = i % dimensions; // Calculate x coordinate
+            const y = Math.floor(i / dimensions); // Calculate y coordinate
+            cell.setAttribute('data-coordinate', `[${x}, ${y}]`)
             board.insertAdjacentElement("beforeend", cell)//inserting cells into container
         }
     }
