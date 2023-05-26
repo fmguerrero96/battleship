@@ -1,0 +1,1 @@
+(()=>{"use strict";(e=>{const t=document.querySelector(e);t.style.gridTemplateColumns="repeat(10, 1fr)",t.style.gridTemplateRows="repeat(10, 1fr)";for(let e=0;e<100;e++){let e=document.createElement("div");e.className="cell",t.insertAdjacentElement("beforeend",e)}})(".pre-board")})();
