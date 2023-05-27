@@ -140,5 +140,10 @@ p {
 
 .cell {
     border: 0.5px solid black;
+    cursor: pointer;
+  }
+
+  .cell:hover{
+    background-color: black;
   }
   
