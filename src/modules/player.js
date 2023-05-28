@@ -32,5 +32,5 @@ const playerFactory = (playerType) => {
            myAttacks}
 }
 
-export default {playerFactory}
-module.exports = playerFactory
+export default playerFactory
+//module.exports = playerFactory

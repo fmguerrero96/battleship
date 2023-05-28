@@ -17,5 +17,5 @@ const shipFactory = (length) => {
 
     return {hit, isSunk, hits, sunk, shipLength}
 }
-export default {shipFactory}
-module.exports = shipFactory
+export default shipFactory
+//module.exports = shipFactory
