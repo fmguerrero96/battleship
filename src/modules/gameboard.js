@@ -28,7 +28,7 @@ const gameboardFactory = () => {
         }
 
         for(let i = 0; i < shipLength; i++){
-            grid[x][y + i] = ship;
+            grid[x + i][y] = ship;
         }
 
         ships.push(ship)
@@ -72,5 +72,5 @@ const gameboardFactory = () => {
 
 }
 
-export default {gameboardFactory}
-module.exports = gameboardFactory
+export default gameboardFactory
+//module.exports = gameboardFactory
