@@ -22,7 +22,7 @@ const gameboardFactory = () => {
         const [x, y] = coordinates;
         
         for(let i =0; i < shipLength; i++){
-            if(grid[x][y + i] !== null){
+            if(grid[x + i][y] !== null){
                 throw new Error('Cannot place ship on an occupied spot')
             }
         }
