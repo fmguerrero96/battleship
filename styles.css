@@ -60,7 +60,7 @@ footer{
     color: aliceblue;
 }
 
-.welcomeScreen {
+.welcomeScreen[open] {
     width: 40vw;
     height: 80vh;
     background-color: rgb(214, 214, 214);
