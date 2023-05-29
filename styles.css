@@ -146,4 +146,8 @@ p {
   .cell:hover{
     background-color: black;
   }
+
+  .ship-cell {
+    background-color: black;
+  }
   
