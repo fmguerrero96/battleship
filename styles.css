@@ -139,15 +139,16 @@ p {
 }
 
 .cell {
-    border: 0.5px solid black;
+    border: 0.5px solid rgb(140, 140, 140);
+    
+}
+
+.pre-board .cell:hover, .computer .cell:hover{
+    background-color: rgb(153, 153, 153);
     cursor: pointer;
-  }
+}
 
-  .cell:hover{
-    background-color: black;
-  }
-
-  .ship-cell {
-    background-color: black;
-  }
+.ship-cell {
+    background-color: rgb(4, 90, 14);
+}
   
