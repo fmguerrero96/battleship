@@ -23,10 +23,14 @@ const events = ((board) => {
         const clickedCell = event.target
         const coordinates = clickedCell.getAttribute('data-coordinate')
         const [x, y] = JSON.parse(coordinates)
+
+        for (let i = 0; i < shipLengths[thisShip]; i++){
+            let shipCell = document.querySelector(`.cell[data-coordinate="[${x+i}, ${y}]"]`)
+            shipCell.className = 'ship-cell'
+        }
         
         board.placeShip([x, y],shipLengths[thisShip])
         thisShip++
-        console.log(thisShip)
 
         if (thisShip >= shipLengths.length) {
             const preBoard = document.querySelector('.pre-board');
