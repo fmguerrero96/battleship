@@ -27,6 +27,11 @@ const events = ((board) => {
         board.placeShip([x, y],shipLengths[thisShip])
         thisShip++
         console.log(thisShip)
+
+        if (thisShip >= shipLengths.length) {
+            const preBoard = document.querySelector('.pre-board');
+            preBoard.removeEventListener('click', retrieveCoordinates);
+          }
     }
 
     const insertShip = () => {
