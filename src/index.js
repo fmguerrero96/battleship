@@ -8,13 +8,13 @@ const aiPlayer = playerFactory('computer')
 const humanGameboard = gameboardFactory() //create board instances 
 const aiGameboard = gameboardFactory()
 
-aiGameboard.placeRandomShips() //populate ai board with ships
-
-const domEvents = events(humanGameboard)
+const domEvents = events(humanGameboard, aiGameboard, humanPlayer, aiPlayer)
 
 domEvents.createCells('.pre-board')
 domEvents.createCells('.human')
 domEvents.createCells('.computer')
 
+aiGameboard.placeRandomShips() //populate ai board with ships
 domEvents.insertShip()
 domEvents.closeModal()
+domEvents.showAttack()
