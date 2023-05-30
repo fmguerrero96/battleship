@@ -8,8 +8,8 @@ describe('gameboardFactory', () => {
         const index = [2, 3]
         board.placeShip(index, length)
         expect(board.grid[2][3]).toBeInstanceOf(Object);
-        expect(board.grid[2][4]).toBeInstanceOf(Object); 
-        expect(board.grid[2][5]).toBeInstanceOf(Object);
+        expect(board.grid[3][3]).toBeInstanceOf(Object); 
+        expect(board.grid[4][3]).toBeInstanceOf(Object);
         //Check that the ship is added to the ships array
         expect(board.ships.length).toBe(1); 
     })
@@ -67,10 +67,34 @@ describe('gameboardFactory', () => {
 
         test('returns true if all ships are sunk', () => {
             board.receiveAttack([2, 3])
-            board.receiveAttack([2, 4])
-            board.receiveAttack([2, 5])
+            board.receiveAttack([3, 3])
+            board.receiveAttack([4, 3])
             expect(board.allShipsSunk()).toBe(true)
         })
     })
+
+    describe('placeRandomShips', () => {
+        test('places all ships on the gameboard without overlap', () => {
+          const aiGameboard = gameboardFactory();
+          aiGameboard.placeRandomShips();
+      
+          // Assert that all ships are placed
+          expect(aiGameboard.getShips().length).toEqual(5);
+      
+          // Assert that ships do not overlap
+          const coordinatesOccupied = new Set();
+          const grid = aiGameboard.getGrid();
+          for (let x = 0; x < grid.length; x++) {
+            for (let y = 0; y < grid[x].length; y++) {
+              const cell = grid[x][y];
+              if (cell !== null) {
+                const coordinate = JSON.stringify([x, y]);
+                expect(coordinatesOccupied.has(coordinate)).toBe(false);
+                coordinatesOccupied.add(coordinate);
+              }
+            }
+          }
+        });
+      });
 })
 
