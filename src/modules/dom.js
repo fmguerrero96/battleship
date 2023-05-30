@@ -48,10 +48,29 @@ const events = ((board) => {
         const welcomeScreen = document.querySelector('.welcomeScreen')
         begin.addEventListener('click', () => {
             welcomeScreen.close()
+            showShips()
         })
     }
 
-    return {createCells, insertShip, closeModal}
+    const showShips = () => {
+        const preBoardNodeList = document.querySelectorAll(".pre-board .ship-cell")
+        const humanBoardNodeList = document.querySelectorAll(".human .cell")
+        const shipCells = []
+
+        for(let i = 0; i < preBoardNodeList.length; i++){
+            shipCells.push(preBoardNodeList[i].getAttribute('data-coordinate'))
+        }
+
+        for(let i = 0; i < humanBoardNodeList.length; i++){
+            let node = humanBoardNodeList[i]
+            let coordinate = humanBoardNodeList[i].getAttribute('data-coordinate')
+            if(shipCells.includes(coordinate)){
+                node.className = 'ship-cell'
+            }
+
+        }
+    }
+    return {createCells, insertShip, closeModal, showShips}
 });
 
 export default events
