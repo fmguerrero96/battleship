@@ -34,6 +34,25 @@ const gameboardFactory = () => {
         ships.push(ship)
     }
 
+    const placeRandomShips = () => {
+        const shipLengths = [5, 4, 3, 3, 2];
+        
+        for(let i = 0; i < shipLengths.length; i++){
+            let placed = false
+            while(!placed){
+                let x = Math.floor(Math.random() * 10)
+                let y = Math.floor(Math.random() * 10)
+                try {
+                    placeShip([x,y], shipLengths[i])
+                    placed = true
+                } catch (error){
+
+                }
+            }
+        }
+        return ships
+      };
+
     const receiveAttack = (coordinates) => {
         const [x,y] = coordinates
         if(grid[x][y] === null){
@@ -44,6 +63,14 @@ const gameboardFactory = () => {
             ship.hit()
             successfulAttacks.push([x,y])
         }
+    }
+
+    const getShips = () => {
+        return ships
+    }
+
+    const getGrid = () => {
+        return grid
     }
 
     const allShipsSunk = () => {
@@ -67,10 +94,11 @@ const gameboardFactory = () => {
 
     populateGrid()
 
-    return{placeShip, grid, ships, receiveAttack, 
-        missedAttacks, successfulAttacks, allShipsSunk, isValidAttack}
+    return{placeShip, grid, ships, receiveAttack, placeRandomShips, 
+        missedAttacks, successfulAttacks, allShipsSunk, isValidAttack, 
+        getShips, getGrid}
 
 }
 
 export default gameboardFactory
-//module.exports = gameboardFactory
+module.exports = gameboardFactory
