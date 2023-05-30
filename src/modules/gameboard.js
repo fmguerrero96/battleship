@@ -101,4 +101,4 @@ const gameboardFactory = () => {
 }
 
 export default gameboardFactory
-module.exports = gameboardFactory
+//module.exports = gameboardFactory
