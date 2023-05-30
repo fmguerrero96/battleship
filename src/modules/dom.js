@@ -1,4 +1,6 @@
-const events = ((board) => {
+import shipFactory from "./ships";
+
+const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
     const shipLengths = [5, 4, 3, 3, 2];
     let thisShip = 0
 
@@ -70,7 +72,28 @@ const events = ((board) => {
 
         }
     }
-    return {createCells, insertShip, closeModal, showShips}
+
+    const humanAttack = (event) => {
+        const clickedCell = event.target
+        const coordinates = clickedCell.getAttribute('data-coordinate')
+        const [x, y] = JSON.parse(coordinates)
+
+        humanPlayer.attack([x,y], enemyBoard)
+        const enemyGrid = enemyBoard.getGrid()
+        console.log(enemyGrid)
+
+
+        if(enemyGrid[x][y] === 0){
+            clickedCell.className = 'miss'
+        } else {clickedCell.className = 'hit'}
+    }
+
+    const showAttack = () => {
+        const aiBoard = document.querySelector('.computer')
+        aiBoard.addEventListener('click', (humanAttack) )
+    }
+
+return {createCells, insertShip, closeModal, showShips, showAttack}
 });
 
 export default events
