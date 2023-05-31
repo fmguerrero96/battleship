@@ -24,6 +24,7 @@ const playerFactory = (playerType) => {
         board.receiveAttack(coordinates)
         myAttacks.push(coordinates)
         isMyTurn = false
+        return coordinates
     }
 
     const attack = playerType === "human" ? humanPlayerAttack : computerPlayerAttack;
