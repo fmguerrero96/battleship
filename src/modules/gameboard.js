@@ -78,8 +78,8 @@ const gameboardFactory = () => {
     }
 
     const isValidAttack = (coordinates) => {
-        const [x, y] = coordinates;
-        for (const [attackX, attackY] of successfulAttacks) {
+        let [x, y] = coordinates;
+        for (let [attackX, attackY] of successfulAttacks) {
             if (attackX === x && attackY === y) {
                 return false;
             }
