@@ -1,5 +1,3 @@
-import shipFactory from "./ships";
-
 const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
     const shipLengths = [5, 4, 3, 3, 2];
     let thisShip = 0
@@ -80,8 +78,6 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
 
         humanPlayer.attack([x,y], enemyBoard)
         const enemyGrid = enemyBoard.getGrid()
-        console.log(enemyGrid)
-
 
         if(enemyGrid[x][y] === 0){
             clickedCell.className = 'miss'
@@ -93,7 +89,18 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
         aiBoard.addEventListener('click', (humanAttack) )
     }
 
-return {createCells, insertShip, closeModal, showShips, showAttack}
+    const aiAttack = () => {
+        const coordinates = computerPlayer.attack(board)
+        const [x,y] = coordinates
+        const myGrid = board.getGrid()
+        const cell = document.querySelector(`.human .cell[data-coordinate="[${x}, ${y}]"`)
+
+        if(myGrid[x][y] === 0){
+            cell.className = 'miss'
+        } else {cell.className = 'hit'}
+    }
+
+return {createCells, insertShip, closeModal, showShips, showAttack, aiAttack}
 });
 
 export default events
