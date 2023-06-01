@@ -19,7 +19,7 @@ const playerFactory = (playerType) => {
     const computerPlayerAttack = (board) => {
         let coordinates = getRandomCoordinates()
         while(!board.isValidAttack(coordinates)){
-            coordinates = getRandomCoordinates
+            coordinates = getRandomCoordinates()
         }
         board.receiveAttack(coordinates)
         myAttacks.push(coordinates)
