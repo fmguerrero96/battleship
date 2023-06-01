@@ -36,6 +36,7 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
             const preBoard = document.querySelector('.pre-board');
             preBoard.removeEventListener('click', retrieveCoordinates);
           }
+        //console.log(board.getGrid())
     }
 
     const insertShip = () => {
@@ -71,7 +72,7 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
         }
     }
 
-    const humanAttack = (event) => {
+    /*const humanAttack = (event) => {
         const clickedCell = event.target
         const coordinates = clickedCell.getAttribute('data-coordinate')
         const [x, y] = JSON.parse(coordinates)
@@ -82,25 +83,31 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
         if(enemyGrid[x][y] === 0){
             clickedCell.className = 'miss'
         } else {clickedCell.className = 'hit'}
-    }
+    }*/
 
-    const showAttack = () => {
+    /*const showAttack = () => {
         const aiBoard = document.querySelector('.computer')
         aiBoard.addEventListener('click', (humanAttack) )
-    }
+    }*/
 
     const aiAttack = () => {
-        const coordinates = computerPlayer.attack(board)
+        let coordinates = computerPlayer.computerPlayerAttack(board)
         const [x,y] = coordinates
         const myGrid = board.getGrid()
-        const cell = document.querySelector(`.human .cell[data-coordinate="[${x}, ${y}]"`)
+        let cell = document.querySelector(`.human .cell[data-coordinate="[${x}, ${y}]"]`)
+
+        if (!cell) {
+            cell = document.querySelector(`.human .ship-cell[data-coordinate="[${x}, ${y}]"]`)
+        }
 
         if(myGrid[x][y] === 0){
             cell.className = 'miss'
         } else {cell.className = 'hit'}
     }
 
-return {createCells, insertShip, closeModal, showShips, showAttack, aiAttack}
+return {createCells, insertShip, closeModal, showShips, aiAttack}
 });
+//showAttack,
+
 
 export default events
