@@ -1,4 +1,4 @@
-const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
+const events = ((board, humanPlayer, enemyBoard, computerPlayer) => {
     const shipLengths = [5, 4, 3, 3, 2];
     let thisShip = 0
 
@@ -36,7 +36,6 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
             const preBoard = document.querySelector('.pre-board');
             preBoard.removeEventListener('click', retrieveCoordinates);
           }
-        //console.log(board.getGrid())
     }
 
     const insertShip = () => {
@@ -72,7 +71,7 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
         }
     }
 
-    /*const humanAttack = (event) => {
+    const humanAttack = (event) => {
         const clickedCell = event.target
         const coordinates = clickedCell.getAttribute('data-coordinate')
         const [x, y] = JSON.parse(coordinates)
@@ -83,12 +82,13 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
         if(enemyGrid[x][y] === 0){
             clickedCell.className = 'miss'
         } else {clickedCell.className = 'hit'}
-    }*/
+        aiAttack() //ensure that ai makes attack after human makes attack
+    }
 
-    /*const showAttack = () => {
+    const showAttack = () => {
         const aiBoard = document.querySelector('.computer')
         aiBoard.addEventListener('click', (humanAttack) )
-    }*/
+    }
 
     const aiAttack = () => {
         let coordinates = computerPlayer.computerPlayerAttack(board)
@@ -105,9 +105,8 @@ const events = ((board, enemyBoard, humanPlayer, computerPlayer) => {
         } else {cell.className = 'hit'}
     }
 
-return {createCells, insertShip, closeModal, showShips, aiAttack}
+return {createCells, insertShip, closeModal, showShips, aiAttack, showAttack}
 });
-//showAttack,
 
 
 export default events
