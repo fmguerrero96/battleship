@@ -82,7 +82,28 @@ const events = ((board, humanPlayer, enemyBoard, computerPlayer) => {
         if(enemyGrid[x][y] === 0){
             clickedCell.className = 'miss'
         } else {clickedCell.className = 'hit'}
+
         aiAttack() //ensure that ai makes attack after human makes attack
+
+        //check to see if there is a winner
+        if (board.allShipsSunk() || enemyBoard.allShipsSunk()){
+            const aiBoard = document.querySelector('.computer')
+            aiBoard.removeEventListener('click', (humanAttack))
+            const gameOverModal = document.querySelector('.gameEnd')
+            gameOverModal.showModal()
+            //check who won, and display the correct winning message
+            if(board.allShipsSunk()){
+                let winner = document.querySelector('.winner')
+                winner.textContent = 'AI Player Wins!'
+            }else {
+                let winner = document.querySelector('.winner')
+                winner.textContent = 'You Win!'
+            }
+            const playAgain = document.querySelector('.playAgain')
+            playAgain.addEventListener('click', () => {
+                document.location.reload()
+            })
+        }
     }
 
     const showAttack = () => {
@@ -105,8 +126,8 @@ const events = ((board, humanPlayer, enemyBoard, computerPlayer) => {
         } else {cell.className = 'hit'}
     }
 
-return {createCells, insertShip, closeModal, showShips, aiAttack, showAttack}
-});
 
+    return {createCells, insertShip, closeModal, showShips, aiAttack, showAttack}
+});
 
 export default events
